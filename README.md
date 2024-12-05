@@ -1,24 +1,12 @@
 <h2 align="center">
-                          Shop-Website <strong>;</strong> 😼
+                          Valrocript <strong>;</strong> 😼
 <br>
 
 
 # Links
-- 🔗 [Youtube Channel](https://www.youtube.com/channel/UC9_kma0SOd-oSe24gqpqqCA)
-- 🔗 [Support Discord](https://discord.com/users/394251966571872256)
+- 🔗 [Youtube Channel](https://www.youtube.com/@corexpi)
+- 🔗 [Support Discord](https://discord.gg/GhQcbXVEAC)
 
-
-# Features
-
-+ Stock.html 
-+ Index.html 
-
-
-# Images 
-
-![stock server](https://user-images.githubusercontent.com/88189918/233963951-b5b6346c-65a7-4e60-95cf-8a9984d0e7b1.png)
-
-![stock html](https://user-images.githubusercontent.com/88189918/233963956-2d14fc9a-5615-4d43-b96d-0584bd87412e.png)
 
 
 
