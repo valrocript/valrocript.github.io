@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./photo/valrocriptx.png">
+    <title>valrocript - 2025</title>
+    <style>
+        body {
+            background-color: #111;
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9)); 
+            animation: move-clouds 60s linear infinite;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Snowfall effect */
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .snowflakes div {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: fall 2s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10%;
+                transform: translateX(0);
+            }
+            100% {
+                top: 100%;
+                transform: translateX(50px);
+            }
+        }
+
+        /* Typing effect */
+        .typing {
+            display: inline-block;
+            font-size: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            color: #e60000; /* Red color */
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 0, 0, 0.9), 0 0 45px rgba(255, 0, 0, 0.9);
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(30) 1s forwards, blink 0.75s step-end infinite;
+            position: relative;
+            z-index: 15;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 25;
+            }
+            100% {
+                width: 250%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Skeletons animation */
+        .skeleton {
+            position: absolute;
+            top: 50%;
+            width: 100px;
+            height: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 5;
+            opacity: 0.9;
+            animation: skeletonMove 8s linear infinite;
+        }
+
+        @keyframes skeletonMove {
+            0% {
+                transform: translateX(-120px) rotate(0deg);
+            }
+            50% {
+                transform: translateX(50vw) rotate(360deg);
+            }
+            100% {
+                transform: translateX(120vw) rotate(360deg);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('/photo/valrocript.png') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        /* Floating Button */
+        .floating-btn {
+            position: absolute;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e60000;
+            color: white;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .floating-btn:hover {
+            background-color: #c50000;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #222;
+            text-align: center;
+            padding: 10px;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+    </style>
+
+    <script>
+        // Snowflakes creation logic
+        function createSnowflakes() {
+            for (let i = 0; i < 100; i++) {
+                const snowflake = document.createElement('div');
+                document.querySelector('.snowflakes').appendChild(snowflake);
+                const randomLeft = Math.random() * 100 + 'vw';
+                snowflake.style.left = randomLeft;
+                snowflake.style.animationDuration = Math.random() * 5 + 2 + 's';
+                snowflake.style.animationDelay = Math.random() * 5 + 's';
+            }
+        }
+
+        // Lightning effect creation
+        function createLightning() {
+            const lightning = document.createElement('div');
+            lightning.classList.add('lightning');
+            document.body.appendChild(lightning);
+
+            // Remove the lightning after the effect duration
+            setTimeout(() => {
+                lightning.remove();
+            }, 200);
+        }
+
+        // Trigger the lightning effect every 5-7 seconds
+        setInterval(createLightning, Math.random() * 2000 + 3000);
+
+        // Create skeletons
+        function createSkeletons() {
+            const skeleton1 = document.createElement('div');
+            skeleton1.classList.add('skeleton');
+            skeleton1.style.backgroundImage = 'url("./photo/jett.png")';  // Replace with actual image path
+            document.body.appendChild(skeleton1);
+            skeleton1.style.animationDelay = '0s'; // Delay for the first skeleton
+
+            const skeleton2 = document.createElement('div');
+            skeleton2.classList.add('skeleton');
+            skeleton2.style.backgroundImage = 'url("./photo/neon.png")';  // Replace with actual image path
+            document.body.appendChild(skeleton2);
+            skeleton2.style.animationDelay = '2s'; // Delay for the second skeleton
+        }
+
+        // Redirect to menu.html after 23 seconds
+        setTimeout(function(){
+            window.location.href = "menu.html";
+        }, 23000);
+
+        // Call snowflakes and skeleton functions
+        window.onload = function() {
+            createSnowflakes();
+            createSkeletons();
+        };
+
+        // Move the "Evet" button randomly across the screen
+        function moveButton() {
+            const button = document.querySelector('.floating-btn');
+            const maxWidth = window.innerWidth - button.offsetWidth;
+            const maxHeight = window.innerHeight - button.offsetHeight;
+
+            // Generate random positions
+            const randomX = Math.random() * maxWidth;
+            const randomY = Math.random() * maxHeight;
+
+            // Move the button to the new position
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+
+        // Move the button every 1.5 seconds
+        setInterval(moveButton, 1500);
+
+        // Redirect to menu.html when the button is clicked
+        function goToMenu() {
+            window.location.href = "menu.html";
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Snowflakes effect -->
+    <div class="snowflakes"></div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 class="typing">Are you ready to add a style to your game?</h1>
+    </div>
+
+    <!-- Floating "Evet" Button -->
+    <button class="floating-btn" onclick="goToMenu()">YES</button>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Top Scripts. All Rights Reserved. <a href="index.html">Home</a></p>
+    </footer>
+
+</body>
+</html>

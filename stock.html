@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./photo/valrocriptx.png">
+    <title>Valrocript - Latest</title>
+    <style>
+        body {
+            background-color: black;
+            background-image: url('poze/clouds_repeat.png');
+            background-size: auto 100%;
+            animation: move-clouds 60s linear infinite;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-shadow: 0 0 30px 10px rgba(1, 0, 0, 0.9); /* Stronger green neon glow */
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes move-clouds {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 0;
+            }
+        }
+
+        /* Ana Menü tasarımı */
+        .main-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px 8px rgba(61, 52, 48, 0.192); /* Stronger green neon glow */
+            z-index: 10;
+        }
+
+        .main-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .main-menu a:hover {
+            background-color: #ff4c4c;
+            border-radius: 5px;
+        }
+
+        h1 img {
+            width: 100%;
+            max-width: 1200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 64px;
+            font-family: 'coolvetica', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 0 20px 8px rgba(214, 7, 204, 0.8); /* Stronger green neon glow */
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card p {
+            margin: 10px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        .view-post {
+            display: block;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            color: #fff;
+            background: #555;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .view-post:hover {
+            background: #888;
+        }
+
+        /* Kutu için stil */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 8px rgba(226, 9, 9, 0.8); /* Stronger green neon glow */
+            width: 400px;
+            z-index: 1000;
+        }
+
+        .popup h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .popup .close-btn,
+        .popup .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background: #ff4c4c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .popup .close-btn:hover,
+        .popup .download-btn:hover {
+            background: #ff3333;
+        }
+
+        /* Bulutların hareketi */
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .clouds div {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: moveClouds 60s linear infinite;
+        }
+
+        .clouds div:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: -150px;
+            animation-duration: 120s;
+        }
+
+        .clouds div:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            top: 20%;
+            left: -200px;
+            animation-duration: 150s;
+            animation-delay: 30s;
+        }
+
+        .clouds div:nth-child(3) {
+            width: 180px;
+            height: 180px;
+            top: 70%;
+            left: -100px;
+            animation-duration: 100s;
+            animation-delay: 60s;
+        }
+
+        @keyframes moveClouds {
+            0% {
+                left: -200px;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .popup-banner-image {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+
+
+.bottom-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+        /* PNG image at the bottom */
+        .bottom-image-container {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px; /* Adjust width as needed */
+            height: 200px; /* Adjust height as needed */
+            box-shadow: 0 0 15px 5px rgba(155, 158, 155, 0.014); /* Green neon glow */
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .bottom-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* PNG image at the bottom */
+.bottom-image-container {
+    position: fixed; /* Change to fixed to keep it at the bottom of the viewport */
+    bottom: 0; /* Ensure it's at the bottom */
+    left: 88%; /* Center horizontally */
+    transform: translateX(-50%); /* Correctly center the element */
+    width: 500px; /* Increased width */
+    height: 300px; /* Increased height */
+    
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Ana Menü -->
+    <div class="main-menu">
+        <a href="menu.html">Menü</a>
+    </div>
+
+    <h1><img src="./photo/valrocript.png" alt=""></h1>
+
+    <!-- Hareketli bulutlar -->
+    <div class="clouds">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <img src="./photo/valo2.jpg" alt="Adopt Me Script">
+            <p>If you play it without exaggerating, make sure that you will never be banned from the server</p>
+            <p>Latest Version</p>
+            <a href="javascript:void(0)" class="view-post" onclick="openPopup('popup1')">View Post</a>
+        </div>
+    
+        <div class="card">
+            <img src="./photo/valo3.jpg" alt="Murder Mystery Script">
+            <p>The best inject for aimbot and wallhack in Valorant</p>
+            <p> </p>
+            <p>Latest Version 2.1.1</p>
+            <a href="javascript:void(0)" class="view-post" onclick="openPopup('popup2')">View Post</a>
+        </div>
+    
+        <div class="card">
+            <img src="./photo/valo1.jpg" alt="Pets Go Script">
+            <p>Valorant Skin Changer</p>
+            <p>You can use all knife and  weapon skins</p>
+            <P> ‎ </P>
+            <a href="javascript:void(0)" class="view-post" onclick="openPopup('popup3')">View Post</a>
+        </div>
+    </div>
+    
+    <!-- Popup Kutuları -->
+    <div class="popup" id="popup1">
+        <img src="./photo/valorant1.png" alt="Popup Banner" class="popup-banner-image">
+        <h2>Valrocript Client 2</h2>
+        <p>If you can’t download / install program, you need to:</p>
+            <p>  1. Disable / remove antivirus (files are completely clean)</p>
+            <p> 2. If you can’t download, try to copy the link and download using another browser!</p>
+            <p> 3. Disable Windows Smart Screen, as well as update the Visual C++ package</p>
+            </p>
+         <a href="YOUR_DOWNLOAD_LINK_HERE" class="download-btn" target="_blank">Download Now</a>
+        <button class="close-btn" onclick="closePopup('popup1')">Close</button>
+    </div>
+    
+    <div class="popup" id="popup2">
+        <img src="./photo/valorant2.png" alt="Popup Banner" class="popup-banner-image">
+        <h2>Injector latest 2.1.1 </h2>
+        <p>If you can’t download / install program, you need to:</p>
+        <p>1. Disable / remove antivirus (files are completely clean)</p>
+        <p>2. Open the valorant first and then immediately start the inject file </p>
+        <p>3. When the injector is switched on you should choose valorant64.1xe and it will work smoothly</p>
+        <a href="YOUR_DOWNLOAD_LINK_HERE" class="download-btn" target="_blank">Download Now</a>
+        <button class="close-btn" onclick="closePopup('popup2')">Close</button>
+    </div>
+    
+    <div class="popup" id="popup3">
+        <img src="./photo/skinchanger1.png" alt="Popup Banner" class="popup-banner-image">
+        <h2>Valorant Skin Changer</h2>
+        <p>You can use all knife and  weapon skins</p>
+        <p>Only you CAN SEE!!</p>
+        <P>There is never a risk of being banned</P>
+        <a href="YOUR_DOWNLOAD_LINK_HERE" class="download-btn" target="_blank">Download Now</a>
+        <button class="close-btn" onclick="closePopup('popup3')">Close</button>
+    </div>
+    
+    <script>
+      // Popup açma fonksiyonu
+function openPopup(popupId) {
+    document.getElementById(popupId).style.display = 'block';
+}
+
+// Popup kapama fonksiyonu
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = 'none';
+}
+
+    </script>
+
+
+
+<div class="bottom-image-container">
+    <img src="./photo/valorr.png" alt="red">
+  </div>
+  
+
+</body>
+</html>

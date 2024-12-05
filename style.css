@@ -1,0 +1,149 @@
+/** Sowwyz#1337 */
+/** Sowwyz#1337 */
+/** Sowwyz#1337 */
+/** Sowwyz#1337 */
+body {
+  background-color: black;
+  background-image: url('poze/clouds_repeat.png');
+  background-size: auto 100%;
+  animation: move-clouds 60s linear infinite;
+}
+
+@keyframes move-clouds {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+
+@keyframes moveBackground {
+  from { background-position: 0 0; }
+  to { background-position: -100% 0; }
+}
+
+
+
+  .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
+/** Sowwyz#1337 */
+/** Sowwyz#1337 */
+/** Sowwyz#1337 */
+/** Sowwyz#1337 */
+
+  
+  h1 {
+  color: white;
+  font-size: 64px;
+  text-align: center;
+  font-style: italic;
+  font-family: 'coolvetica', sans-serif;
+  position: relative;
+  z-index: 1;
+  }
+  
+  h1 img:nth-of-type(1) {
+  position: absolute;
+  top: -52.5px;
+  left: -25px;
+  z-index: -1;
+  height: 200px;
+  }
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+
+  h1 img:nth-of-type(2) {
+  position: absolute;
+  top: -30px;
+  left: -20px;
+  z-index: -1;
+  height: 140px;
+  }
+  
+  h1 span {
+  color: red;
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 3px;
+  }
+/** Sowwyz#1337 */
+/** Sowwyz#1337 */
+/** Sowwyz#1337 */
+
+  
+  button {
+  background-color: transparent;
+  border: none;
+  padding: 20px;
+  margin: 0 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 8px rgba(214, 7, 204, 0.8); /* Stronger green neon glow */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  }
+  
+  button:hover {
+  transform: scale(1.1);
+  }
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+    /** Sowwyz#1337 */
+
+  button img {
+  height: 40px;
+  }
+  
+  .discord-logo:hover {
+  cursor: pointer;
+  }
+
+  @font-face {
+  font-family: 'coolvetica';
+  src: url('fonts/coolvetica.otf') format('opentype');
+  }
+ /* PNG image at the bottom */
+ .bottom-image-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  box-shadow: 0 0 15px 5px rgba(155, 158, 155, 0.014); /* Green neon glow */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.bottom-image-container img {
+  width: 150%;
+  height: 110%;
+  object-fit: cover;
+}
+
+/* PNG image at the bottom */
+.bottom-image-container {
+position: fixed; /* Change to fixed to keep it at the bottom of the viewport */
+bottom: 0; /* Ensure it's at the bottom */
+left: 91%; /* Center horizontally */
+transform: translateX(-50%); /* Correctly center the element */
+width: 300px; /* Increased width */
+height: 200px; /* Increased height */
+
+border-radius: 15px;
+overflow: hidden;
+z-index: 1000; /* Ensure it's above other elements */
+}
